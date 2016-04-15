@@ -1,0 +1,13 @@
+PODS:
+  - JCDialPad (0.1.1):
+    - libPhoneNumber-iOS
+  - libPhoneNumber-iOS (0.8.11)
+
+DEPENDENCIES:
+  - JCDialPad
+
+SPEC CHECKSUMS:
+  JCDialPad: d977d1ff76eaaa1939c5f3b8882937094e093b3d
+  libPhoneNumber-iOS: ded33fab2c51ee847979556aa504c9e70f32d703
+
+COCOAPODS: 0.38.2
