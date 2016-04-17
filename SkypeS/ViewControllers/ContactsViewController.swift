@@ -19,20 +19,6 @@ class ContactsViewController: UIViewController {
     var contacts:[CNContact] = []
 
     var dialPadViewAppear:Bool = false
-    lazy var dialPadView:JCDialPad = {
-    
-        let dialpad = JCDialPad(frame:self.view.bounds)
-        dialpad.buttons = JCDialPad.defaultButtons()
-        dialpad.digitsTextField.textColor = UIColor(red: 0.0, green: 0.0, blue: 0.5, alpha: 0.5)
-        for button in dialpad.buttons {
-            let b = button as! JCPadButton
-            b.textColor = UIColor(red: 0.0, green: 0.0, blue: 0.5, alpha: 0.5)
-            b.borderColor = UIColor(red: 0.0, green: 0.0, blue: 0.5, alpha: 0.5)
-        }
-        dialpad.delegate = self
-        dialpad.backgroundColor = UIColor.whiteColor()
-        return dialpad
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,15 +76,32 @@ extension ContactsViewController:UITableViewDataSource {
         cell.configure(contact)
         
         cell.callCallback = { (name, number) in
-        
+            
+            if !DialpadManager.sharedInstance.isPadShowing {
+                DialpadManager.sharedInstance.showPadFrom(self, type: DialpadManagerPads.outcoming, number: number)
+            } else {
+                DialpadManager.sharedInstance.hidePads()
+            }
         }
         
         cell.incommingCallback = { (name, number) in
             
+            if !DialpadManager.sharedInstance.isPadShowing {
+                DialpadManager.sharedInstance.showPadFrom(self, type: DialpadManagerPads.incoming, number: number)
+            } else {
+                DialpadManager.sharedInstance.hidePads()
+            }
         }
         
         cell.chatCallback = { (name, email) in
             
+            let chatController = LGChatController()
+            chatController.opponentImage = cell.avatar.image
+            chatController.title = name
+            let helloMessage = LGChatMessage(content: "Hello skype skeleton messanger!", sentBy: .User)
+            chatController.messages = [helloMessage]
+            chatController.delegate = self
+            self.navigationController?.pushViewController(chatController, animated: true)
         }
         
         return cell
@@ -126,19 +129,26 @@ extension ContactsViewController {
             print("This is on line \(#line) of \(#function)")
         #endif
     
-        if !dialPadViewAppear {
-            view.addSubview(dialPadView)
-            dialPadViewAppear = true
+        if !DialpadManager.sharedInstance.isPadShowing {
+            DialpadManager.sharedInstance.showPadFrom(self, type: DialpadManagerPads.pad, number: nil)
         } else {
-            dialPadView.removeFromSuperview()
-            dialPadViewAppear = false
+            DialpadManager.sharedInstance.hidePads()
         }
     }
 }
 
-extension ContactsViewController:JCDialPadDelegate {
+//MARK: - LGChatControllerDelegate
 
-    func dialPad(dialPad: JCDialPad!, shouldInsertText text: String!, forButtonPress button: JCPadButton!) -> Bool {
+extension ContactsViewController:LGChatControllerDelegate {
+    
+    func chatController(chatController: LGChatController, didAddNewMessage message: LGChatMessage) {
+        print("Did Add Message: \(message.content)")
+    }
+    
+    func shouldChatController(chatController: LGChatController, addMessage message: LGChatMessage) -> Bool {
+        /*
+         Use this space to prevent sending a message, or to alter a message.  For example, you might want to hold a message until its successfully uploaded to a server.
+         */
         return true
     }
 }

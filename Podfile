@@ -1,6 +1,8 @@
-platform :ios, '8.0'
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.1'
 use_frameworks!
 
-target ’SkypeS’ do
-    pod ’JCDialPad’
+target 'SkypeS' do
+    pod 'JCDialPad'
+    pod 'FontasticIcons'
 end

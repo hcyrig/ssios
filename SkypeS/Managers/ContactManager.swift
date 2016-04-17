@@ -8,6 +8,8 @@
 
 import Contacts
 
+//MARK: - ContactManager
+
 class ContactManager: NSObject {
     
     static let sharedInstance = ContactManager()

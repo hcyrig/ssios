@@ -83,8 +83,12 @@ extension ContactTableViewCell {
             print("This is on line \(#line) of \(#function)")
         #endif
         
-        if let p = phone.text, let n = name.text{
-            callCallback?(name:n, number:p)
+        if let p = phone.text, let n = name.text {
+            
+            let numbers = p.componentsSeparatedByString(",")
+            if (numbers.count > 0 && numbers.first != nil) {
+                callCallback?(name:n, number:numbers.first!)
+            }
         }
     }
 
@@ -93,8 +97,12 @@ extension ContactTableViewCell {
             print("This is on line \(#line) of \(#function)")
         #endif
         
-        if let p = phone.text, let n = name.text{
-            incommingCallback?(name:n, number:p)
+        if let p = phone.text, let n = name.text {
+            
+            let numbers = p.componentsSeparatedByString(",")
+            if (numbers.count > 0 && numbers.first != nil) {
+                incommingCallback?(name:n, number:p)
+            }
         }
     }
 
@@ -103,7 +111,7 @@ extension ContactTableViewCell {
             print("This is on line \(#line) of \(#function)")
         #endif
         
-        if let e = email.text, let n = name.text{
+        if let e = email.text, let n = name.text {
             chatCallback?(name:n, email:e)
         }
     }

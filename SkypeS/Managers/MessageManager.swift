@@ -8,6 +8,8 @@
 
 import UIKit
 
+//MARK: - MessageManager
+
 class MessageManager: NSObject {
 
     static let sharedInstance = MessageManager()

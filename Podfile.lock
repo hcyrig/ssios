@@ -1,12 +1,15 @@
 PODS:
+  - FontasticIcons (0.5.0)
   - JCDialPad (0.1.1):
     - libPhoneNumber-iOS
   - libPhoneNumber-iOS (0.8.11)
 
 DEPENDENCIES:
+  - FontasticIcons
   - JCDialPad
 
 SPEC CHECKSUMS:
+  FontasticIcons: f20740bf8f1d3565c312f1c3b9806339212b58aa
   JCDialPad: d977d1ff76eaaa1939c5f3b8882937094e093b3d
   libPhoneNumber-iOS: ded33fab2c51ee847979556aa504c9e70f32d703
 
