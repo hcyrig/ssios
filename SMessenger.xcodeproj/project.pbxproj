@@ -1,0 +1,536 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3000897B969C4D317C8CE0DE /* Pods_SMessenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5288EBD42C47A9AFA82A7355 /* Pods_SMessenger.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		960EFE441CC7B74500C42800 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960EFE261CC7B74500C42800 /* AppDelegate.swift */; };
+		960EFE451CC7B74500C42800 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 960EFE271CC7B74500C42800 /* Assets.xcassets */; };
+		960EFE461CC7B74500C42800 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960EFE281CC7B74500C42800 /* LaunchScreen.storyboard */; };
+		960EFE471CC7B74500C42800 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960EFE2A1CC7B74500C42800 /* Main.storyboard */; };
+		960EFE481CC7B74500C42800 /* LGSimpleChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960EFE2E1CC7B74500C42800 /* LGSimpleChat.swift */; };
+		960EFE491CC7B74500C42800 /* License in Resources */ = {isa = PBXBuildFile; fileRef = 960EFE2F1CC7B74500C42800 /* License */; };
+		960EFE4A1CC7B74500C42800 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 960EFE301CC7B74500C42800 /* Info.plist */; };
+		960EFE4B1CC7B74500C42800 /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960EFE321CC7B74500C42800 /* ContactManager.swift */; };
+		960EFE4C1CC7B74500C42800 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960EFE331CC7B74500C42800 /* DataManager.swift */; };
+		960EFE4D1CC7B74500C42800 /* DialpadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960EFE341CC7B74500C42800 /* DialpadManager.swift */; };
+		960EFE4E1CC7B74500C42800 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960EFE351CC7B74500C42800 /* MessageManager.swift */; };
+		960EFE4F1CC7B74500C42800 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960EFE371CC7B74500C42800 /* Message.swift */; };
+		960EFE501CC7B74500C42800 /* license.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 960EFE391CC7B74500C42800 /* license.pdf */; };
+		960EFE511CC7B74500C42800 /* test_messages.json in Resources */ = {isa = PBXBuildFile; fileRef = 960EFE3A1CC7B74500C42800 /* test_messages.json */; };
+		960EFE521CC7B74500C42800 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960EFE3D1CC7B74500C42800 /* ContactsViewController.swift */; };
+		960EFE531CC7B74500C42800 /* CallKeysDialPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960EFE3F1CC7B74500C42800 /* CallKeysDialPadView.swift */; };
+		960EFE541CC7B74500C42800 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960EFE401CC7B74500C42800 /* ContactTableViewCell.swift */; };
+		960EFE551CC7B74500C42800 /* IncomingDialPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960EFE411CC7B74500C42800 /* IncomingDialPadView.swift */; };
+		960EFE561CC7B74500C42800 /* KeysDialPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960EFE421CC7B74500C42800 /* KeysDialPadView.swift */; };
+		960EFE571CC7B74500C42800 /* MainDialPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960EFE431CC7B74500C42800 /* MainDialPadView.swift */; };
+		960EFE591CC7BC9F00C42800 /* fontawesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 960EFE581CC7BC9F00C42800 /* fontawesome.ttf */; };
+		960EFE621CC7BD0A00C42800 /* Entypo-Social.otf in Resources */ = {isa = PBXBuildFile; fileRef = 960EFE5A1CC7BD0A00C42800 /* Entypo-Social.otf */; };
+		960EFE631CC7BD0A00C42800 /* Entypo.otf in Resources */ = {isa = PBXBuildFile; fileRef = 960EFE5B1CC7BD0A00C42800 /* Entypo.otf */; };
+		960EFE641CC7BD0A00C42800 /* Entypo.strings in Resources */ = {isa = PBXBuildFile; fileRef = 960EFE5C1CC7BD0A00C42800 /* Entypo.strings */; };
+		960EFE651CC7BD0A00C42800 /* EntypoSocial.strings in Resources */ = {isa = PBXBuildFile; fileRef = 960EFE5D1CC7BD0A00C42800 /* EntypoSocial.strings */; };
+		960EFE661CC7BD0A00C42800 /* FontAwesomeRegular.strings in Resources */ = {isa = PBXBuildFile; fileRef = 960EFE5E1CC7BD0A00C42800 /* FontAwesomeRegular.strings */; };
+		960EFE671CC7BD0A00C42800 /* FontAwesomeRegular+Deprecation.strings in Resources */ = {isa = PBXBuildFile; fileRef = 960EFE5F1CC7BD0A00C42800 /* FontAwesomeRegular+Deprecation.strings */; };
+		960EFE681CC7BD0A00C42800 /* iconic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 960EFE601CC7BD0A00C42800 /* iconic.otf */; };
+		960EFE691CC7BD0A00C42800 /* IconicStroke.strings in Resources */ = {isa = PBXBuildFile; fileRef = 960EFE611CC7BD0A00C42800 /* IconicStroke.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		328E9D958587C365071A3061 /* Pods-SMessenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMessenger.release.xcconfig"; path = "Pods/Target Support Files/Pods-SMessenger/Pods-SMessenger.release.xcconfig"; sourceTree = "<group>"; };
+		5288EBD42C47A9AFA82A7355 /* Pods_SMessenger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SMessenger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65FF560CD9B10B7EA7D96F78 /* Pods_SkypeS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SkypeS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AB395E0BD76DF73CBD14DB2 /* Pods-SMessenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMessenger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SMessenger/Pods-SMessenger.debug.xcconfig"; sourceTree = "<group>"; };
+		960EFE261CC7B74500C42800 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		960EFE271CC7B74500C42800 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		960EFE291CC7B74500C42800 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		960EFE2B1CC7B74500C42800 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		960EFE2E1CC7B74500C42800 /* LGSimpleChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LGSimpleChat.swift; sourceTree = "<group>"; };
+		960EFE2F1CC7B74500C42800 /* License */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License; sourceTree = "<group>"; };
+		960EFE301CC7B74500C42800 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		960EFE321CC7B74500C42800 /* ContactManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
+		960EFE331CC7B74500C42800 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		960EFE341CC7B74500C42800 /* DialpadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialpadManager.swift; sourceTree = "<group>"; };
+		960EFE351CC7B74500C42800 /* MessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
+		960EFE371CC7B74500C42800 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		960EFE391CC7B74500C42800 /* license.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = license.pdf; sourceTree = "<group>"; };
+		960EFE3A1CC7B74500C42800 /* test_messages.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_messages.json; sourceTree = "<group>"; };
+		960EFE3D1CC7B74500C42800 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		960EFE3F1CC7B74500C42800 /* CallKeysDialPadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallKeysDialPadView.swift; sourceTree = "<group>"; };
+		960EFE401CC7B74500C42800 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		960EFE411CC7B74500C42800 /* IncomingDialPadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomingDialPadView.swift; sourceTree = "<group>"; };
+		960EFE421CC7B74500C42800 /* KeysDialPadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeysDialPadView.swift; sourceTree = "<group>"; };
+		960EFE431CC7B74500C42800 /* MainDialPadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainDialPadView.swift; sourceTree = "<group>"; };
+		960EFE581CC7BC9F00C42800 /* fontawesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fontawesome.ttf; sourceTree = "<group>"; };
+		960EFE5A1CC7BD0A00C42800 /* Entypo-Social.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Entypo-Social.otf"; sourceTree = "<group>"; };
+		960EFE5B1CC7BD0A00C42800 /* Entypo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Entypo.otf; sourceTree = "<group>"; };
+		960EFE5C1CC7BD0A00C42800 /* Entypo.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Entypo.strings; sourceTree = "<group>"; };
+		960EFE5D1CC7BD0A00C42800 /* EntypoSocial.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = EntypoSocial.strings; sourceTree = "<group>"; };
+		960EFE5E1CC7BD0A00C42800 /* FontAwesomeRegular.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = FontAwesomeRegular.strings; sourceTree = "<group>"; };
+		960EFE5F1CC7BD0A00C42800 /* FontAwesomeRegular+Deprecation.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = "FontAwesomeRegular+Deprecation.strings"; sourceTree = "<group>"; };
+		960EFE601CC7BD0A00C42800 /* iconic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconic.otf; sourceTree = "<group>"; };
+		960EFE611CC7BD0A00C42800 /* IconicStroke.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = IconicStroke.strings; sourceTree = "<group>"; };
+		962195581CBEE4CA00F92DD8 /* SMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C70FA8B8FC2A7EC2E20F164D /* Pods-SkypeS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkypeS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SkypeS/Pods-SkypeS.release.xcconfig"; sourceTree = "<group>"; };
+		CCF7805BC5CABB15F0A4B628 /* Pods-SkypeS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkypeS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SkypeS/Pods-SkypeS.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		962195551CBEE4CA00F92DD8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3000897B969C4D317C8CE0DE /* Pods_SMessenger.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		40990A34F5E05973B5EDEF4F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CCF7805BC5CABB15F0A4B628 /* Pods-SkypeS.debug.xcconfig */,
+				C70FA8B8FC2A7EC2E20F164D /* Pods-SkypeS.release.xcconfig */,
+				7AB395E0BD76DF73CBD14DB2 /* Pods-SMessenger.debug.xcconfig */,
+				328E9D958587C365071A3061 /* Pods-SMessenger.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		960EFE251CC7B74500C42800 /* SMessenger */ = {
+			isa = PBXGroup;
+			children = (
+				960EFE261CC7B74500C42800 /* AppDelegate.swift */,
+				960EFE271CC7B74500C42800 /* Assets.xcassets */,
+				960EFE281CC7B74500C42800 /* LaunchScreen.storyboard */,
+				960EFE2A1CC7B74500C42800 /* Main.storyboard */,
+				960EFE2C1CC7B74500C42800 /* External */,
+				960EFE301CC7B74500C42800 /* Info.plist */,
+				960EFE311CC7B74500C42800 /* Managers */,
+				960EFE361CC7B74500C42800 /* Model */,
+				960EFE381CC7B74500C42800 /* Resources */,
+				960EFE3C1CC7B74500C42800 /* ViewControllers */,
+				960EFE3E1CC7B74500C42800 /* Views */,
+			);
+			path = SMessenger;
+			sourceTree = "<group>";
+		};
+		960EFE2C1CC7B74500C42800 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				960EFE2D1CC7B74500C42800 /* LGSimpleChat */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		960EFE2D1CC7B74500C42800 /* LGSimpleChat */ = {
+			isa = PBXGroup;
+			children = (
+				960EFE2E1CC7B74500C42800 /* LGSimpleChat.swift */,
+				960EFE2F1CC7B74500C42800 /* License */,
+			);
+			path = LGSimpleChat;
+			sourceTree = "<group>";
+		};
+		960EFE311CC7B74500C42800 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				960EFE321CC7B74500C42800 /* ContactManager.swift */,
+				960EFE331CC7B74500C42800 /* DataManager.swift */,
+				960EFE341CC7B74500C42800 /* DialpadManager.swift */,
+				960EFE351CC7B74500C42800 /* MessageManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		960EFE361CC7B74500C42800 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				960EFE371CC7B74500C42800 /* Message.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		960EFE381CC7B74500C42800 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				960EFE5A1CC7BD0A00C42800 /* Entypo-Social.otf */,
+				960EFE5B1CC7BD0A00C42800 /* Entypo.otf */,
+				960EFE5C1CC7BD0A00C42800 /* Entypo.strings */,
+				960EFE5D1CC7BD0A00C42800 /* EntypoSocial.strings */,
+				960EFE5E1CC7BD0A00C42800 /* FontAwesomeRegular.strings */,
+				960EFE5F1CC7BD0A00C42800 /* FontAwesomeRegular+Deprecation.strings */,
+				960EFE601CC7BD0A00C42800 /* iconic.otf */,
+				960EFE611CC7BD0A00C42800 /* IconicStroke.strings */,
+				960EFE581CC7BC9F00C42800 /* fontawesome.ttf */,
+				960EFE391CC7B74500C42800 /* license.pdf */,
+				960EFE3A1CC7B74500C42800 /* test_messages.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		960EFE3C1CC7B74500C42800 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				960EFE3D1CC7B74500C42800 /* ContactsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		960EFE3E1CC7B74500C42800 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				960EFE3F1CC7B74500C42800 /* CallKeysDialPadView.swift */,
+				960EFE401CC7B74500C42800 /* ContactTableViewCell.swift */,
+				960EFE411CC7B74500C42800 /* IncomingDialPadView.swift */,
+				960EFE421CC7B74500C42800 /* KeysDialPadView.swift */,
+				960EFE431CC7B74500C42800 /* MainDialPadView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9621954F1CBEE4CA00F92DD8 = {
+			isa = PBXGroup;
+			children = (
+				960EFE251CC7B74500C42800 /* SMessenger */,
+				962195591CBEE4CA00F92DD8 /* Products */,
+				40990A34F5E05973B5EDEF4F /* Pods */,
+				E36793C5022834EBE7CF6DB1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		962195591CBEE4CA00F92DD8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				962195581CBEE4CA00F92DD8 /* SMessenger.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E36793C5022834EBE7CF6DB1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65FF560CD9B10B7EA7D96F78 /* Pods_SkypeS.framework */,
+				5288EBD42C47A9AFA82A7355 /* Pods_SMessenger.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		962195571CBEE4CA00F92DD8 /* SMessenger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9621956A1CBEE4CA00F92DD8 /* Build configuration list for PBXNativeTarget "SMessenger" */;
+			buildPhases = (
+				84A4DBB22EF8D41A5F959562 /* Check Pods Manifest.lock */,
+				962195541CBEE4CA00F92DD8 /* Sources */,
+				962195551CBEE4CA00F92DD8 /* Frameworks */,
+				962195561CBEE4CA00F92DD8 /* Resources */,
+				7993182C8DCAF9CF4B2701C3 /* Embed Pods Frameworks */,
+				BD64859B0B4F68531129D920 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SMessenger;
+			productName = SkypeS;
+			productReference = 962195581CBEE4CA00F92DD8 /* SMessenger.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		962195501CBEE4CA00F92DD8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "The Three Ways";
+				TargetAttributes = {
+					962195571CBEE4CA00F92DD8 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = 962195531CBEE4CA00F92DD8 /* Build configuration list for PBXProject "SMessenger" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9621954F1CBEE4CA00F92DD8;
+			productRefGroup = 962195591CBEE4CA00F92DD8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				962195571CBEE4CA00F92DD8 /* SMessenger */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		962195561CBEE4CA00F92DD8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				960EFE501CC7B74500C42800 /* license.pdf in Resources */,
+				960EFE471CC7B74500C42800 /* Main.storyboard in Resources */,
+				960EFE451CC7B74500C42800 /* Assets.xcassets in Resources */,
+				960EFE591CC7BC9F00C42800 /* fontawesome.ttf in Resources */,
+				960EFE661CC7BD0A00C42800 /* FontAwesomeRegular.strings in Resources */,
+				960EFE671CC7BD0A00C42800 /* FontAwesomeRegular+Deprecation.strings in Resources */,
+				960EFE491CC7B74500C42800 /* License in Resources */,
+				960EFE511CC7B74500C42800 /* test_messages.json in Resources */,
+				960EFE641CC7BD0A00C42800 /* Entypo.strings in Resources */,
+				960EFE691CC7BD0A00C42800 /* IconicStroke.strings in Resources */,
+				960EFE4A1CC7B74500C42800 /* Info.plist in Resources */,
+				960EFE461CC7B74500C42800 /* LaunchScreen.storyboard in Resources */,
+				960EFE631CC7BD0A00C42800 /* Entypo.otf in Resources */,
+				960EFE651CC7BD0A00C42800 /* EntypoSocial.strings in Resources */,
+				960EFE621CC7BD0A00C42800 /* Entypo-Social.otf in Resources */,
+				960EFE681CC7BD0A00C42800 /* iconic.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7993182C8DCAF9CF4B2701C3 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SMessenger/Pods-SMessenger-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84A4DBB22EF8D41A5F959562 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BD64859B0B4F68531129D920 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SMessenger/Pods-SMessenger-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		962195541CBEE4CA00F92DD8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				960EFE481CC7B74500C42800 /* LGSimpleChat.swift in Sources */,
+				960EFE4D1CC7B74500C42800 /* DialpadManager.swift in Sources */,
+				960EFE4C1CC7B74500C42800 /* DataManager.swift in Sources */,
+				960EFE551CC7B74500C42800 /* IncomingDialPadView.swift in Sources */,
+				960EFE4E1CC7B74500C42800 /* MessageManager.swift in Sources */,
+				960EFE4B1CC7B74500C42800 /* ContactManager.swift in Sources */,
+				960EFE521CC7B74500C42800 /* ContactsViewController.swift in Sources */,
+				960EFE541CC7B74500C42800 /* ContactTableViewCell.swift in Sources */,
+				960EFE531CC7B74500C42800 /* CallKeysDialPadView.swift in Sources */,
+				960EFE441CC7B74500C42800 /* AppDelegate.swift in Sources */,
+				960EFE561CC7B74500C42800 /* KeysDialPadView.swift in Sources */,
+				960EFE4F1CC7B74500C42800 /* Message.swift in Sources */,
+				960EFE571CC7B74500C42800 /* MainDialPadView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		960EFE281CC7B74500C42800 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				960EFE291CC7B74500C42800 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		960EFE2A1CC7B74500C42800 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				960EFE2B1CC7B74500C42800 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		962195681CBEE4CA00F92DD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		962195691CBEE4CA00F92DD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9621956B1CBEE4CA00F92DD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7AB395E0BD76DF73CBD14DB2 /* Pods-SMessenger.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kostiantyn Girych (WV7LCLFK4Q)";
+				INFOPLIST_FILE = SMessenger/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thethreeways.smessenger;
+				PRODUCT_NAME = SMessenger;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9621956C1CBEE4CA00F92DD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 328E9D958587C365071A3061 /* Pods-SMessenger.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Kostiantyn Girych (U5SLFXCU39)";
+				INFOPLIST_FILE = SMessenger/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.thethreeways.smessenger;
+				PRODUCT_NAME = SMessenger;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		962195531CBEE4CA00F92DD8 /* Build configuration list for PBXProject "SMessenger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				962195681CBEE4CA00F92DD8 /* Debug */,
+				962195691CBEE4CA00F92DD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9621956A1CBEE4CA00F92DD8 /* Build configuration list for PBXNativeTarget "SMessenger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9621956B1CBEE4CA00F92DD8 /* Debug */,
+				9621956C1CBEE4CA00F92DD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 962195501CBEE4CA00F92DD8 /* Project object */;
+}
