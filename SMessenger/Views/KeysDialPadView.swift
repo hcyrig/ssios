@@ -16,13 +16,22 @@ class KeysDialPadView: JCDialPad {
     override var buttons:[AnyObject]! {
         
         get {
-            let iView = FIIconView(frame: CGRectMake(0, 0, 65, 65))
+            var iView = FIIconView(frame: CGRectMake(0, 0, 65, 65))
             iView.backgroundColor = UIColor.clearColor()
             iView.icon = FIFontAwesomeIcon.replyIcon()
             iView.padding = 15
             iView.iconColor = UIColor.whiteColor()
             let bButton = JCPadButton(input: DialpadManagerButtonsTypes.kKeyboardViewBackInput.rawValue, iconView: iView, subLabel: "")
+            
+            iView = FIIconView(frame: CGRectMake(0, 0, 65, 65))
+            iView.backgroundColor = UIColor.clearColor()
+            iView.icon = FIFontAwesomeIcon.phoneIcon()
+            iView.padding = 15
+            iView.iconColor = UIColor.whiteColor()
+            let cButton = JCPadButton(input: DialpadManagerButtonsTypes.kKeyboardViewCallInput.rawValue, iconView: iView, subLabel: "")
+            
             var buttons  = JCDialPad.defaultButtons()
+            buttons.append(cButton)
             buttons.append(bButton)
             return buttons as! [JCPadButton]
         }
@@ -63,7 +72,11 @@ extension KeysDialPadView:JCDialPadDelegate {
         #endif
         
         switch text {
-        case DialpadManagerButtonsTypes.kKeyboardViewBackInput.rawValue: DialpadManager.sharedInstance.swithFrom(type,to:DialpadManagerPads.outcoming, animate:true)
+        case DialpadManagerButtonsTypes.kKeyboardViewBackInput.rawValue:
+            digitsTextField.text = nil
+            DialpadManager.sharedInstance.swithFrom(type,to:DialpadManagerPads.outcoming, animate:true)
+        return false
+        case DialpadManagerButtonsTypes.kKeyboardViewCallInput.rawValue: DialpadManager.sharedInstance.swithFrom(type,to:DialpadManagerPads.outcoming, animate:true)
         return false
         default:
             return true

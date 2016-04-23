@@ -6,6 +6,7 @@
 //  Copyright © 2016 The Three Ways. All rights reserved.
 //
 
+import AVFoundation
 import FontasticIcons
 import JCDialPad
 
@@ -14,6 +15,21 @@ class IncomingDialPadView: JCDialPad {
     let status = UILabel()
     
     let type = DialpadManagerPads.incoming
+    
+    var rigntonPlayer:AVAudioPlayer?
+    let ringtonSound:String = "telephone-ring.wav"
+    
+    override var hidden: Bool {
+        
+        didSet {
+        
+            if hidden {
+                rigntonPlayer?.stop()
+            } else {
+                rigntonPlayer?.play()
+            }
+        }
+    }
     
     override var buttons:[AnyObject]! {
         
@@ -64,6 +80,7 @@ class IncomingDialPadView: JCDialPad {
         
         delegate = self
         showDeleteButton = false
+        rigntonPlayer = setupAudioPlayerWithFile(ringtonSound, type: "")
         //setupStatus()
         
         //take snapshot of root view and set as background:
@@ -112,5 +129,29 @@ extension IncomingDialPadView:JCDialPadDelegate {
         default:
             return true
         }
+    }
+}
+
+//MARK: - setup audio player
+
+extension IncomingDialPadView {
+
+    func setupAudioPlayerWithFile(file:NSString, type:NSString) -> AVAudioPlayer?  {
+        //1
+        let path = NSBundle.mainBundle().pathForResource(file as String, ofType: type as String)
+        let url = NSURL.fileURLWithPath(path!)
+        
+        //2
+        var audioPlayer:AVAudioPlayer?
+        
+        // 3
+        do {
+            try audioPlayer = AVAudioPlayer(contentsOfURL: url)
+            audioPlayer!.numberOfLoops = -1
+            audioPlayer!.prepareToPlay()
+        } catch {
+            print("Player not available")
+        }
+        return audioPlayer
     }
 }

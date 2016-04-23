@@ -97,6 +97,7 @@ class DialpadManager: NSObject {
 
         setupPads(vc)
         padByType(type)?.hidden = false
+        padByType(type)?.rawText = ""
         padByType(type)?.digitsTextField.text = number
         
         parentVC.addChildViewController(vc)
@@ -118,6 +119,10 @@ class DialpadManager: NSObject {
         
         vc.removeFromParentViewController()
         vc.view.removeFromSuperview()
+        
+        for pad in pads {
+            pad.hidden = true
+        }
     }
     
     private func setupPads(vc:UIViewController) {
@@ -148,11 +153,16 @@ extension DialpadManager:JCDialPadDelegate {
         
         if to == DialpadManagerPads.outcoming {
             
-            outcoming.digitsTextField.text = padByType(type)?.digitsTextField.text
+            if padByType(type)?.digitsTextField.text != nil && padByType(type)?.digitsTextField.text != "" {
+                outcoming.digitsTextField.text = padByType(type)?.digitsTextField.text
+                outcoming.handle()
+            }
             swithToPad(vc, pad: outcoming, animated: animate)
         }
         
         if to == DialpadManagerPads.inpad {
+            inpad.rawText = ""
+            inpad.digitsTextField.text = nil
             swithToPad(vc, pad: inpad, animated: animate)
         }
         

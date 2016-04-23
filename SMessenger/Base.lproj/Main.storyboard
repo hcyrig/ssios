@@ -7,7 +7,7 @@
         <!--Contacts-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ContactsViewController" id="BYZ-38-t0r" customClass="ContactsViewController" customModule="SkypeS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContactsViewController" id="BYZ-38-t0r" customClass="ContactsViewController" customModule="SMessenger" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContactTableViewCell" rowHeight="80" id="rRx-AP-eUA" customClass="ContactTableViewCell" customModule="SkypeS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContactTableViewCell" rowHeight="80" id="rRx-AP-eUA" customClass="ContactTableViewCell" customModule="SMessenger" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rRx-AP-eUA" id="pbc-4S-HyX">
@@ -35,21 +35,8 @@
                                                         <constraint firstAttribute="height" constant="40" id="rJg-V2-LCu"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MK7-Ti-XDO">
-                                                    <rect key="frame" x="520" y="24" width="32" height="32"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="32" id="2GZ-1P-G7o"/>
-                                                        <constraint firstAttribute="width" constant="32" id="uO7-yF-8Mn"/>
-                                                    </constraints>
-                                                    <state key="normal" image="telephone">
-                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="incommingAction:" destination="rRx-AP-eUA" eventType="touchUpInside" id="tX7-bB-fuB"/>
-                                                    </connections>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lug-72-sPD">
-                                                    <rect key="frame" x="480" y="24" width="32" height="32"/>
+                                                    <rect key="frame" x="520" y="24" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="AhI-8W-5iq"/>
                                                         <constraint firstAttribute="width" constant="32" id="roR-K9-rHU"/>
@@ -75,19 +62,19 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Johnoson" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ni3-5V-xlZ">
-                                                    <rect key="frame" x="76" y="8" width="396" height="20"/>
+                                                    <rect key="frame" x="76" y="8" width="436" height="20"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1111234145" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="GOK-Yo-xXP">
-                                                    <rect key="frame" x="76" y="53" width="396" height="18"/>
+                                                    <rect key="frame" x="76" y="53" width="436" height="18"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="example@example.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="VIB-9D-lEf">
-                                                    <rect key="frame" x="76" y="32" width="396" height="14"/>
+                                                    <rect key="frame" x="76" y="32" width="436" height="14"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -97,18 +84,16 @@
                                                 <constraint firstItem="Lug-72-sPD" firstAttribute="leading" secondItem="VIB-9D-lEf" secondAttribute="trailing" constant="8" id="2Yx-dS-pFl"/>
                                                 <constraint firstItem="Ni3-5V-xlZ" firstAttribute="top" secondItem="pbc-4S-HyX" secondAttribute="top" constant="8" id="2s7-Bh-WkT"/>
                                                 <constraint firstItem="GOK-Yo-xXP" firstAttribute="leading" secondItem="Gnq-hT-rzu" secondAttribute="trailing" constant="24" id="5ma-oV-uEq"/>
-                                                <constraint firstItem="T4s-39-Bti" firstAttribute="leading" secondItem="MK7-Ti-XDO" secondAttribute="trailing" constant="8" id="6fu-ZB-U7e"/>
                                                 <constraint firstAttribute="trailing" secondItem="T4s-39-Bti" secondAttribute="trailing" constant="8" id="7dR-9l-7qv"/>
                                                 <constraint firstItem="Lug-72-sPD" firstAttribute="leading" secondItem="Ni3-5V-xlZ" secondAttribute="trailing" constant="8" id="Arm-3s-d9r"/>
                                                 <constraint firstItem="T4s-39-Bti" firstAttribute="centerY" secondItem="pbc-4S-HyX" secondAttribute="centerY" id="EoR-hW-G0V"/>
-                                                <constraint firstItem="MK7-Ti-XDO" firstAttribute="centerY" secondItem="pbc-4S-HyX" secondAttribute="centerY" id="GqC-hB-a9Q"/>
                                                 <constraint firstItem="Lug-72-sPD" firstAttribute="centerY" secondItem="pbc-4S-HyX" secondAttribute="centerY" id="N97-Tl-nY5"/>
-                                                <constraint firstItem="MK7-Ti-XDO" firstAttribute="leading" secondItem="Lug-72-sPD" secondAttribute="trailing" constant="8" id="PMc-Rs-36b"/>
                                                 <constraint firstItem="Ni3-5V-xlZ" firstAttribute="leading" secondItem="Gnq-hT-rzu" secondAttribute="trailing" constant="24" id="UnN-A6-Dvk"/>
                                                 <constraint firstItem="VIB-9D-lEf" firstAttribute="top" secondItem="Ni3-5V-xlZ" secondAttribute="bottom" constant="4" id="XtZ-OH-9Sx"/>
                                                 <constraint firstAttribute="bottom" secondItem="GOK-Yo-xXP" secondAttribute="bottom" constant="8" id="aZn-kl-NBR"/>
                                                 <constraint firstItem="Gnq-hT-rzu" firstAttribute="leading" secondItem="pbc-4S-HyX" secondAttribute="leading" constant="12" id="adl-na-Ift"/>
                                                 <constraint firstItem="Gnq-hT-rzu" firstAttribute="centerY" secondItem="pbc-4S-HyX" secondAttribute="centerY" id="eI9-DI-br9"/>
+                                                <constraint firstItem="T4s-39-Bti" firstAttribute="leading" secondItem="Lug-72-sPD" secondAttribute="trailing" constant="8" id="hpO-t1-syj"/>
                                                 <constraint firstItem="VIB-9D-lEf" firstAttribute="leading" secondItem="Gnq-hT-rzu" secondAttribute="trailing" constant="24" id="pWs-kO-jun"/>
                                                 <constraint firstItem="Lug-72-sPD" firstAttribute="leading" secondItem="GOK-Yo-xXP" secondAttribute="trailing" constant="8" id="qqu-hk-Smf"/>
                                                 <constraint firstItem="GOK-Yo-xXP" firstAttribute="top" secondItem="VIB-9D-lEf" secondAttribute="bottom" constant="7" id="wfq-qr-BMe"/>
@@ -119,7 +104,6 @@
                                             <outlet property="call" destination="Lug-72-sPD" id="rPs-wt-CXN"/>
                                             <outlet property="chat" destination="T4s-39-Bti" id="hbg-3Z-BpE"/>
                                             <outlet property="email" destination="VIB-9D-lEf" id="uO2-6r-AUg"/>
-                                            <outlet property="incomming" destination="MK7-Ti-XDO" id="O6S-vh-1Et"/>
                                             <outlet property="name" destination="Ni3-5V-xlZ" id="1dv-g7-fP7"/>
                                             <outlet property="phone" destination="GOK-Yo-xXP" id="RGX-Ve-dWe"/>
                                         </connections>
@@ -184,6 +168,5 @@
         <image name="circle" width="170" height="170"/>
         <image name="shapes" width="170" height="170"/>
         <image name="technology26" width="26" height="26"/>
-        <image name="telephone" width="170" height="170"/>
     </resources>
 </document>

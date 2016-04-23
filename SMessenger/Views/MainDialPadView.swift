@@ -106,6 +106,10 @@ class MainDialPadView: JCDialPad {
         status.userInteractionEnabled = false
         addSubview(status)
     }
+    
+    func handle() {
+        print("Calling to \(digitsTextField.text)")
+    }
 }
 
 //MARK: - JCDialPadDelegate
