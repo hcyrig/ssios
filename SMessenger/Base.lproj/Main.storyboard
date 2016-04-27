@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rGa-ur-4MW">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Contacts-->
@@ -124,12 +125,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Contacts" id="Ri0-ce-bXH">
-                        <barButtonItem key="rightBarButtonItem" image="technology26" id="mDP-vl-lAx">
-                            <color key="tintColor" red="0.029241694987234973" green="0.23421835821467196" blue="0.29284623066666682" alpha="0.63728448275862071" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="dialPadAction:" destination="BYZ-38-t0r" id="Fv5-2U-mAd"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="technology26" id="mDP-vl-lAx">
+                                <color key="tintColor" red="0.029241694987234973" green="0.23421835821467196" blue="0.29284623066666682" alpha="0.63728448275862071" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="dialPadAction:" destination="BYZ-38-t0r" id="Fv5-2U-mAd"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="telephone26" id="5kx-mt-FHF">
+                                <color key="tintColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="dialPadIncomingAction:" destination="BYZ-38-t0r" id="QbJ-BS-FjN"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="table" destination="ZXJ-Cg-ist" id="9Q0-hw-Vc2"/>
@@ -137,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1124" y="367"/>
+            <point key="canvasLocation" x="1255" y="269"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1R8-HA-nB0">
@@ -168,5 +177,6 @@
         <image name="circle" width="170" height="170"/>
         <image name="shapes" width="170" height="170"/>
         <image name="technology26" width="26" height="26"/>
+        <image name="telephone26" width="26" height="26"/>
     </resources>
 </document>

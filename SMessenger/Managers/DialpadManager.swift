@@ -140,6 +140,8 @@ class DialpadManager: NSObject {
     }
 }
 
+//MARK: - JCDialPadDelegate
+
 extension DialpadManager:JCDialPadDelegate {
     
     func swithFrom(type:DialpadManagerPads,to:DialpadManagerPads, animate:Bool) {
@@ -197,6 +199,40 @@ extension DialpadManager:JCDialPadDelegate {
                 if p != pad {
                     p.hidden = true;
                 }
+            }
+        }
+    }
+}
+
+
+//MARK: - rotation handler
+
+extension DialpadManager {
+    
+    func subsctibeToRoration() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(DialpadManager.rotationHandler), name: UIDeviceOrientationDidChangeNotification, object: nil)
+    }
+    
+    func unsubscribeToRotation() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIDeviceOrientationDidChangeNotification, object: nil)
+    }
+    
+    func rotationHandler(orientation:UIDeviceOrientation) {
+        
+        if (UIDeviceOrientationIsLandscape(orientation)) {
+            print("landscape")
+        }
+        
+        if (UIDeviceOrientationIsPortrait(orientation)) {
+            print("Portrait")
+        }
+        
+        if DialpadManager.sharedInstance.isPadShowing {
+            
+            for pad in pads {
+                //beacerfull there is H:W frame not W:H original frame size
+                pad.frame = CGRect(x: 0.0, y: 0.0, width: vc.view.frame.height, height: vc.view.frame.width)
+                pad.layoutIfNeeded()
             }
         }
     }

@@ -43,6 +43,14 @@ class ContactsViewController: UIViewController {
         if chat != nil {
             chat = nil
         }
+    
+        DialpadManager.sharedInstance.subsctibeToRoration()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        DialpadManager.sharedInstance.unsubscribeToRotation()
     }
 }
 
@@ -105,11 +113,11 @@ extension ContactsViewController:UITableViewDataSource {
         
         cell.incommingCallback = { (name, number) in
             
-            if !DialpadManager.sharedInstance.isPadShowing {
-                DialpadManager.sharedInstance.showPadFrom(self, type: DialpadManagerPads.incoming, number: number)
-            } else {
-                DialpadManager.sharedInstance.hidePads()
-            }
+//            if !DialpadManager.sharedInstance.isPadShowing {
+//                DialpadManager.sharedInstance.showPadFrom(self, type: DialpadManagerPads.incoming, number: number)
+//            } else {
+//                DialpadManager.sharedInstance.hidePads()
+//            }
         }
         
         cell.chatCallback = { [weak self] (name, email) in
@@ -150,6 +158,18 @@ extension ContactsViewController {
     
         if !DialpadManager.sharedInstance.isPadShowing {
             DialpadManager.sharedInstance.showPadFrom(self, type: DialpadManagerPads.pad, number: nil)
+        } else {
+            DialpadManager.sharedInstance.hidePads()
+        }
+    }
+    
+    @IBAction func dialPadIncomingAction(sender:AnyObject) {
+        #if DEBUG
+            print("This is on line \(#line) of \(#function)")
+        #endif
+        
+        if !DialpadManager.sharedInstance.isPadShowing {
+            DialpadManager.sharedInstance.showPadFrom(self, type: DialpadManagerPads.incoming, number: "+38308042830480")
         } else {
             DialpadManager.sharedInstance.hidePads()
         }
