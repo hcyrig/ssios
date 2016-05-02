@@ -14,14 +14,11 @@ import JCDialPad
 class ContactsViewController: UIViewController {
 
     @IBOutlet weak var table:UITableView!
-    @IBOutlet weak var dialPad:UIButton!
+    @IBOutlet weak var searchBar:UISearchBar!
     
     var contacts:[CNContact] = []
-
-    var dialPadViewAppear:Bool = false
-    
-    var test_timer: NSTimer!
-    var chat:LGChatController?
+    var fcontacts:[CNContact] = []
+    var searchActive:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,15 +31,6 @@ class ContactsViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if test_timer != nil {
-            test_timer.invalidate()
-            test_timer = nil
-        }
-        
-        if chat != nil {
-            chat = nil
-        }
     
         DialpadManager.sharedInstance.subsctibeToRoration()
     }
@@ -95,46 +83,58 @@ extension ContactsViewController {
 //MARK: - UITableViewDataSource
 
 extension ContactsViewController:UITableViewDataSource {
+
+    func contactBy(cell:ContactTableViewCell) -> CNContact? {
+        
+        if let index = self.table.indexPathForCell(cell) {
+            if (self.contacts.count > index.row) {
+                return self.contacts[index.row]
+            }
+        }
+        return nil
+    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(ContactTableViewCell.indentifire) as! ContactTableViewCell
-        let contact = contacts[indexPath.row]
+        
+        var tcontacts = fcontacts
+        if !searchActive {
+            tcontacts = contacts
+        }
+        
+        let contact = tcontacts[indexPath.row]
         cell.configure(contact)
         
-        cell.callCallback = { (name, number) in
+        cell.callCallback = { [weak self] cell in
             
-            if !DialpadManager.sharedInstance.isPadShowing {
-                DialpadManager.sharedInstance.showPadFrom(self, type: DialpadManagerPads.outcoming, number: number)
-            } else {
-                DialpadManager.sharedInstance.hidePads()
+            if let contact = self?.contactBy(cell), let weak = self {
+                
+                if !DialpadManager.sharedInstance.isPadShowing {
+                    DialpadManager.sharedInstance.showPadFrom(weak, type: DialpadManagerPads.outcoming, number: contact.phones())
+                } else {
+                    DialpadManager.sharedInstance.hidePads()
+                }
             }
         }
-        
-        cell.incommingCallback = { (name, number) in
+    
+        cell.chatCallback = { [weak self] cell in
             
-//            if !DialpadManager.sharedInstance.isPadShowing {
-//                DialpadManager.sharedInstance.showPadFrom(self, type: DialpadManagerPads.incoming, number: number)
-//            } else {
-//                DialpadManager.sharedInstance.hidePads()
-//            }
+            if let contact = self?.contactBy(cell), let weak = self {
+                
+                let chat = ChatViewController()
+                chat.contact = contact
+                weak.navigationController?.pushViewController(ChatViewController(), animated: true)
+            }
         }
-        
-        cell.chatCallback = { [weak self] (name, email) in
-            
-            self?.chat = LGChatController()
-            self?.chat!.opponentImage = cell.avatar.image
-            self?.chat!.title = name
-            self?.chat!.messages = DataManager.sharedInstance.lgpop(name)
-            self?.chat!.delegate = self
-            self!.navigationController?.pushViewController((self?.chat)!, animated: true)
-            self?.run_tests_data()
-        }
-        
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if searchActive {
+           return fcontacts.count
+        }
         return contacts.count
     }
     
@@ -144,6 +144,15 @@ extension ContactsViewController:UITableViewDataSource {
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return UIView()
+    }
+}
+
+//MARK: - UIScrollViewDelegate
+
+extension ContactsViewController: UIScrollViewDelegate {
+    
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        searchBar.endEditing(true)
     }
 }
 
@@ -176,55 +185,37 @@ extension ContactsViewController {
     }
 }
 
-//MARK: - LGChatControllerDelegate
+//MARK: - UISearchBarDelegate
 
-extension ContactsViewController:LGChatControllerDelegate {
+extension ContactsViewController: UISearchBarDelegate {
+
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchActive = true;
+    }
     
-    func chatController(chatController: LGChatController, didAddNewMessage messaget: LGChatMessage) {
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         
-        print("Did Add Message: \(messaget.content)")
-        if let name = chatController.title {
+        fcontacts = contacts.filter({ contact -> Bool in
+            let tmp: NSString = contact.fullName()
+            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
+            return range.location != NSNotFound
+        })
         
-            var messages = DataManager.sharedInstance.pop(name)
-            if messages == nil {
-                messages = [Message]()
-            }
-            messages?.append(Message(text: messaget.content, by: messaget.sentByString, time: "\(messaget.timeStamp)"))
-            DataManager.sharedInstance.push(messages, by: chatController.title!)
+        if searchText == "" {
+            fcontacts = contacts
         }
-    }
-    
-    func shouldChatController(chatController: LGChatController, addMessage message: LGChatMessage) -> Bool {
-        /*
-         Use this space to prevent sending a message, or to alter a message.  For example, you might want to hold a message until its successfully uploaded to a server.
-         */
-        return true
-    }
-}
-
-//MARK: - a timer for test data by 10 sec
-
-extension ContactsViewController {
-
-    //interval in 10 secs
-    func run_tests_interval() -> Double {
-        return Double(10)
-    }
-    
-    func run_tests_data() {
-        
-        if test_timer != nil {
-            test_timer.invalidate()
-            test_timer = nil
-        }
-        
-        test_timer = NSTimer.scheduledTimerWithTimeInterval(run_tests_interval(), target: self, selector: #selector(ContactsViewController.run_tests_timer_code), userInfo: nil, repeats: true)
-    }
-    
-    func run_tests_timer_code() {
-        
-        if let message = DataManager.sharedInstance.test_random_message()?.lgchatmessage(LGChatMessage.SentBy.Opponent) {
-            chat?.addNewMessage(message)
-        }
+        self.table.reloadData()
     }
 }

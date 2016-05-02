@@ -37,6 +37,8 @@
 		963816321CCB70CD00ABC9B8 /* license_icons.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 963816231CCB70CD00ABC9B8 /* license_icons.pdf */; };
 		963816331CCB70CD00ABC9B8 /* test_messages.json in Resources */ = {isa = PBXBuildFile; fileRef = 963816251CCB70CD00ABC9B8 /* test_messages.json */; };
 		963816341CCB70CD00ABC9B8 /* telephone-ring.wav in Resources */ = {isa = PBXBuildFile; fileRef = 963816271CCB70CD00ABC9B8 /* telephone-ring.wav */; };
+		966BE0511CD7DBBA0077965F /* CNContact+Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966BE0501CD7DBBA0077965F /* CNContact+Wrapper.swift */; };
+		966BE0531CD7E6B00077965F /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966BE0521CD7E6B00077965F /* ChatViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +77,8 @@
 		963816231CCB70CD00ABC9B8 /* license_icons.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = license_icons.pdf; sourceTree = "<group>"; };
 		963816251CCB70CD00ABC9B8 /* test_messages.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test_messages.json; sourceTree = "<group>"; };
 		963816271CCB70CD00ABC9B8 /* telephone-ring.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "telephone-ring.wav"; sourceTree = "<group>"; };
+		966BE0501CD7DBBA0077965F /* CNContact+Wrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNContact+Wrapper.swift"; sourceTree = "<group>"; };
+		966BE0521CD7E6B00077965F /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		C70FA8B8FC2A7EC2E20F164D /* Pods-SkypeS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkypeS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SkypeS/Pods-SkypeS.release.xcconfig"; sourceTree = "<group>"; };
 		CCF7805BC5CABB15F0A4B628 /* Pods-SkypeS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkypeS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SkypeS/Pods-SkypeS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				960EFE371CC7B74500C42800 /* Message.swift */,
+				966BE0501CD7DBBA0077965F /* CNContact+Wrapper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				960EFE3D1CC7B74500C42800 /* ContactsViewController.swift */,
+				966BE0521CD7E6B00077965F /* ChatViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -177,8 +183,8 @@
 		960EFE3E1CC7B74500C42800 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				960EFE3F1CC7B74500C42800 /* CallKeysDialPadView.swift */,
 				960EFE401CC7B74500C42800 /* ContactTableViewCell.swift */,
+				960EFE3F1CC7B74500C42800 /* CallKeysDialPadView.swift */,
 				960EFE411CC7B74500C42800 /* IncomingDialPadView.swift */,
 				960EFE421CC7B74500C42800 /* KeysDialPadView.swift */,
 				960EFE431CC7B74500C42800 /* MainDialPadView.swift */,
@@ -398,7 +404,9 @@
 				960EFE4B1CC7B74500C42800 /* ContactManager.swift in Sources */,
 				960EFE521CC7B74500C42800 /* ContactsViewController.swift in Sources */,
 				960EFE541CC7B74500C42800 /* ContactTableViewCell.swift in Sources */,
+				966BE0531CD7E6B00077965F /* ChatViewController.swift in Sources */,
 				960EFE531CC7B74500C42800 /* CallKeysDialPadView.swift in Sources */,
+				966BE0511CD7DBBA0077965F /* CNContact+Wrapper.swift in Sources */,
 				960EFE441CC7B74500C42800 /* AppDelegate.swift in Sources */,
 				960EFE561CC7B74500C42800 /* KeysDialPadView.swift in Sources */,
 				960EFE4F1CC7B74500C42800 /* Message.swift in Sources */,

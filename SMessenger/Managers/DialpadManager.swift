@@ -32,6 +32,14 @@ enum DialpadManagerPads:String {
     case empty = "empty"
 }
 
+//MARK: - Implement delegate if you wonna to have more inforamation about pad behaviour
+protocol DialpadManagerDelegate : class {
+    
+    func dialPadDidOpen(type:DialpadManagerPads, controller:UIViewController) -> ()
+    func dialPadDidSwithed(pad:JCDialPad, controller:UIViewController) -> ()
+    func dialPadDidClose(type:DialpadManagerPads, controller:UIViewController) -> ()
+}
+
 class DialpadManager: NSObject {
 
     static let sharedInstance = DialpadManager()
@@ -47,6 +55,8 @@ class DialpadManager: NSObject {
     let incoming = IncomingDialPadView()
     let inpad = KeysDialPadView()
     let pad = CallKeysDialPadView()
+    
+    weak var delegate:DialpadManagerDelegate?
     
     var pads:[JCDialPad] {
         return [outcoming, incoming, inpad, pad]
@@ -105,9 +115,11 @@ class DialpadManager: NSObject {
         parentVC.view.addSubview(vc.view)
         
         isPadShowing = true
+        
+        self.delegate?.dialPadDidOpen(type, controller: vc)
     }
     
-    func hidePads() {
+    func hidePads(type:DialpadManagerPads = DialpadManagerPads.empty) {
         #if DEBUG
             print("This is on line \(#line) of \(#function)")
         #endif
@@ -123,6 +135,8 @@ class DialpadManager: NSObject {
         for pad in pads {
             pad.hidden = true
         }
+        
+        self.delegate?.dialPadDidClose(type,controller: vc)
     }
     
     private func setupPads(vc:UIViewController) {
@@ -169,7 +183,7 @@ extension DialpadManager:JCDialPadDelegate {
         }
         
         if to == DialpadManagerPads.empty {
-            hidePads()
+            hidePads(type)
         }
     }
     
@@ -188,7 +202,7 @@ extension DialpadManager:JCDialPadDelegate {
         pad.hidden = false
         
         vc?.view.bringSubviewToFront(pad)
-        
+
         UIView.animateWithDuration(0.3 * Double(animated.hashValue), animations: {
             
             pad.alpha = 1.0
@@ -200,6 +214,8 @@ extension DialpadManager:JCDialPadDelegate {
                     p.hidden = true;
                 }
             }
+            
+            self.delegate?.dialPadDidSwithed(pad, controller: vc!)
         }
     }
 }

@@ -11,17 +11,17 @@ import UIKit
 
 class ContactTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var email:UILabel!
+//    @IBOutlet weak var email:UILabel!
     @IBOutlet weak var name:UILabel!
-    @IBOutlet weak var phone:UILabel!
+//    @IBOutlet weak var phone:UILabel!
     @IBOutlet weak var avatar:UIImageView!
     @IBOutlet weak var call:UIButton!
     @IBOutlet weak var chat:UIButton!
-    @IBOutlet weak var incomming:UIButton!
+//    @IBOutlet weak var incomming:UIButton!
     
-    var callCallback:((name:String, number:String) -> ())?
-    var chatCallback:((name:String, email:String) -> ())?
-    var incommingCallback:((name:String, number:String) -> ())?
+    var callCallback:((cell:ContactTableViewCell) -> ())?
+    var chatCallback:((cell:ContactTableViewCell) -> ())?
+//    var incommingCallback:((cell:ContactTableViewCell) -> ())?
     
     static let indentifire = "ContactTableViewCell"
     
@@ -30,41 +30,35 @@ class ContactTableViewCell: UITableViewCell {
             print("This is on line \(#line) of \(#function)")
         #endif
         // Set the full name info.
-        name.text = "\(c.givenName) \(c.familyName)"
+        name.text = c.fullName()
 
         // Set the contact image.
-        if let imageData = c.thumbnailImageData {
-            avatar.image = UIImage(data: imageData)
-        } else if let imageData = c.imageData {
-            avatar.image = UIImage(data: imageData)
-        } else {
-            avatar.image = UIImage(named: "avatar")
-        }
+        avatar.image = c.avatar()
         
-        // Set the contact's email address.
-        var homeEmailAddress: [String] = []
-        for emailAddress in c.emailAddresses {
-            homeEmailAddress.append(emailAddress.value as! String)
-        }
-        if homeEmailAddress.count != 0 {
-            email.text = homeEmailAddress.joinWithSeparator(", ")
-        }
-        else {
-            email.text = "Not available email"
-        }
-        
-        // Set the contact's phone number.
-        var phoneNumbers: [String] = []
-        for number in c.phoneNumbers {
-            let pN = number.value as! CNPhoneNumber
-            phoneNumbers.append(pN.stringValue)
-        }
-        if phoneNumbers.count != 0 {
-            phone.text = phoneNumbers.joinWithSeparator(", ")
-        }
-        else {
-            phone.text = "Not available number"
-        }
+//        // Set the contact's email address.
+//        var homeEmailAddress: [String] = []
+//        for emailAddress in c.emailAddresses {
+//            homeEmailAddress.append(emailAddress.value as! String)
+//        }
+//        if homeEmailAddress.count != 0 {
+//            email.text = homeEmailAddress.joinWithSeparator(", ")
+//        }
+//        else {
+//            email.text = "Not available email"
+//        }
+//        
+//        // Set the contact's phone number.
+//        var phoneNumbers: [String] = []
+//        for number in c.phoneNumbers {
+//            let pN = number.value as! CNPhoneNumber
+//            phoneNumbers.append(pN.stringValue)
+//        }
+//        if phoneNumbers.count != 0 {
+//            phone.text = phoneNumbers.joinWithSeparator(", ")
+//        }
+//        else {
+//            phone.text = "Not available number"
+//        }
     }
     
     override func awakeFromNib() {
@@ -83,36 +77,21 @@ extension ContactTableViewCell {
             print("This is on line \(#line) of \(#function)")
         #endif
         
-        if let p = phone.text, let n = name.text {
-            
-            let numbers = p.componentsSeparatedByString(",")
-            if (numbers.count > 0 && numbers.first != nil) {
-                callCallback?(name:n, number:numbers.first!)
-            }
-        }
+        callCallback?(cell: self)
     }
 
-    @IBAction func incommingAction(sender:AnyObject) {
-        #if DEBUG
-            print("This is on line \(#line) of \(#function)")
-        #endif
-        
-        if let p = phone.text, let n = name.text {
-            
-            let numbers = p.componentsSeparatedByString(",")
-            if (numbers.count > 0 && numbers.first != nil) {
-                incommingCallback?(name:n, number:p)
-            }
-        }
-    }
+//    @IBAction func incommingAction(sender:AnyObject) {
+//        #if DEBUG
+//            print("This is on line \(#line) of \(#function)")
+//        #endif
+//
+//    }
 
     @IBAction func chatAction(sender:AnyObject) {
         #if DEBUG
             print("This is on line \(#line) of \(#function)")
         #endif
         
-        if let e = email.text, let n = name.text {
-            chatCallback?(name:n, email:e)
-        }
+        chatCallback?(cell: self)
     }
 }
