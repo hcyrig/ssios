@@ -124,7 +124,7 @@ extension ContactsViewController:UITableViewDataSource {
                 
                 let chat = ChatViewController()
                 chat.contact = contact
-                weak.navigationController?.pushViewController(ChatViewController(), animated: true)
+                weak.navigationController?.pushViewController(chat, animated: true)
             }
         }
         return cell

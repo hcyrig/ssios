@@ -15,19 +15,16 @@ class ChatViewController: LGChatController {
 
     var contact:CNContact?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-   
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.delegate = self
         self.opponentImage = contact?.avatar()
         
         if let name = contact?.fullName() {
             self.title = name
             self.messages = DataManager.sharedInstance.lgpop(name)
         }
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
         
         self.run_tests_data()
     }
