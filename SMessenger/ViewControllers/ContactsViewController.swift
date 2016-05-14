@@ -87,8 +87,14 @@ extension ContactsViewController:UITableViewDataSource {
     func contactBy(cell:ContactTableViewCell) -> CNContact? {
         
         if let index = self.table.indexPathForCell(cell) {
-            if (self.contacts.count > index.row) {
-                return self.contacts[index.row]
+            
+            var tcontacts = fcontacts
+            if !searchActive {
+                tcontacts = contacts
+            }
+            
+            if (tcontacts.count > index.row) {
+                return tcontacts[index.row]
             }
         }
         return nil

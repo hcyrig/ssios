@@ -549,7 +549,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thethreeways.smessenger;
 				PRODUCT_NAME = SMessenger;
-				PROVISIONING_PROFILE = "31e1bdb7-d430-4d75-8b46-9792db48a6b1";
+				PROVISIONING_PROFILE = "73f0f424-189a-4167-b94a-d55deaf41e13";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
