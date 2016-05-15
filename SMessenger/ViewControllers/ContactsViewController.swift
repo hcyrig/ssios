@@ -17,7 +17,7 @@ class ContactsViewController: UIViewController {
     @IBOutlet weak var searchBar:UISearchBar!
     
     var contacts:[CNContact] = []
-    var fcontacts:[CNContact] = []
+    var wcontacts:[CNContact] = []
     var searchActive:Bool = false
     
     override func viewDidLoad() {
@@ -73,7 +73,12 @@ extension ContactsViewController {
                 }
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     control.endRefreshing()
-                    self?.table.reloadData()
+                    
+                    if let tcont = self?.contacts {
+                        self?.searchBar.text = nil
+                        self?.wcontacts = tcont
+                        self?.table.reloadData()
+                    }
                 })
             }
         }
@@ -88,13 +93,8 @@ extension ContactsViewController:UITableViewDataSource {
         
         if let index = self.table.indexPathForCell(cell) {
             
-            var tcontacts = fcontacts
-            if !searchActive {
-                tcontacts = contacts
-            }
-            
-            if (tcontacts.count > index.row) {
-                return tcontacts[index.row]
+            if (wcontacts.count > index.row) {
+                return wcontacts[index.row]
             }
         }
         return nil
@@ -104,12 +104,7 @@ extension ContactsViewController:UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(ContactTableViewCell.indentifire) as! ContactTableViewCell
         
-        var tcontacts = fcontacts
-        if !searchActive {
-            tcontacts = contacts
-        }
-        
-        let contact = tcontacts[indexPath.row]
+        let contact = wcontacts[indexPath.row]
         cell.configure(contact)
         
         cell.callCallback = { [weak self] cell in
@@ -121,6 +116,7 @@ extension ContactsViewController:UITableViewDataSource {
                 } else {
                     DialpadManager.sharedInstance.hidePads()
                 }
+                weak.searchBar.endEditing(true)
             }
         }
     
@@ -130,6 +126,7 @@ extension ContactsViewController:UITableViewDataSource {
                 
                 let chat = ChatViewController()
                 chat.contact = contact
+                weak.searchBar.endEditing(true)
                 weak.navigationController?.pushViewController(chat, animated: true)
             }
         }
@@ -137,11 +134,7 @@ extension ContactsViewController:UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if searchActive {
-           return fcontacts.count
-        }
-        return contacts.count
+        return wcontacts.count
     }
     
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -213,14 +206,14 @@ extension ContactsViewController: UISearchBarDelegate {
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         
-        fcontacts = contacts.filter({ contact -> Bool in
+        wcontacts = contacts.filter({ contact -> Bool in
             let tmp: NSString = contact.fullName()
             let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
             return range.location != NSNotFound
         })
         
         if searchText == "" {
-            fcontacts = contacts
+            wcontacts = contacts
         }
         self.table.reloadData()
     }
