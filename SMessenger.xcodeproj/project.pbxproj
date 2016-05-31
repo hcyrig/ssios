@@ -533,7 +533,7 @@
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thethreeways.smessenger;
 				PRODUCT_NAME = SMessenger;
-				PROVISIONING_PROFILE = "8003701c-8128-44b8-89fa-73369329277e";
+				PROVISIONING_PROFILE = "71fb2554-2ea4-4cb4-8f03-a0417cdaab86";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -549,7 +549,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thethreeways.smessenger;
 				PRODUCT_NAME = SMessenger;
-				PROVISIONING_PROFILE = "73f0f424-189a-4167-b94a-d55deaf41e13";
+				PROVISIONING_PROFILE = "d088118b-3e60-4bac-ba03-ccf9f9ada783";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

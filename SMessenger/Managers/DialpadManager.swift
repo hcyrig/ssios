@@ -58,6 +58,8 @@ class DialpadManager: NSObject {
     
     weak var delegate:DialpadManagerDelegate?
     
+    var orientation:UIDeviceOrientation?
+    
     var pads:[JCDialPad] {
         return [outcoming, incoming, inpad, pad]
     }
@@ -142,7 +144,7 @@ class DialpadManager: NSObject {
     private func setupPads(vc:UIViewController) {
         
         for pad in pads {
-            pad.frame = vc.view.bounds
+            pad.frame = UIScreen.mainScreen().bounds
             vc.view.addSubview(pad)
             pad.hidden = true
         }
@@ -233,22 +235,39 @@ extension DialpadManager {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIDeviceOrientationDidChangeNotification, object: nil)
     }
     
-    func rotationHandler(orientation:UIDeviceOrientation) {
+    func rotationHandler(notification:UIDeviceOrientation) {
         
-        if (UIDeviceOrientationIsLandscape(orientation)) {
-            print("landscape")
+        let norientation = UIDevice.currentDevice().orientation
+        
+        if !UIDeviceOrientationIsValidInterfaceOrientation(norientation) {
+            return
         }
         
-        if (UIDeviceOrientationIsPortrait(orientation)) {
-            print("Portrait")
+        if self.orientation == norientation {
+            return
+        }
+
+        self.orientation = norientation
+        
+        if (UIDeviceOrientationIsLandscape(norientation)) {
+            if DialpadManager.sharedInstance.isPadShowing {
+                
+                for pad in pads {
+                    //beacerfull there is H:W frame not W:H original frame size
+                    pad.frame = CGRect(x: 0.0, y: 0.0, width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height)
+                    pad.layoutIfNeeded()
+                }
+            }
         }
         
-        if DialpadManager.sharedInstance.isPadShowing {
-            
-            for pad in pads {
-                //beacerfull there is H:W frame not W:H original frame size
-                pad.frame = CGRect(x: 0.0, y: 0.0, width: vc.view.frame.height, height: vc.view.frame.width)
-                pad.layoutIfNeeded()
+        if (UIDeviceOrientationIsPortrait(norientation)) {
+            if DialpadManager.sharedInstance.isPadShowing {
+                
+                for pad in pads {
+                    //beacerfull there is H:W frame not W:H original frame size
+                    pad.frame = CGRect(x: 0.0, y: 0.0, width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.height)
+                    pad.layoutIfNeeded()
+                }
             }
         }
     }
